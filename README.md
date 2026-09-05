@@ -70,18 +70,9 @@ Meeting invite URLs are built from **`MINUTA_BASE_URL`** (never hard-code `127.0
 | `MINUTA_BASE_URL=auto` | `http://{detected-LAN-IP}:8000/...` (same Wi-Fi **testing only**) |
 | `MINUTA_BASE_URL=https://minuta.example.com` | **Production** — any network / mobile data |
 
-Meeting IDs are cryptographically random (not sequential). Guests open the link → lobby → name → camera/mic → **Join Meeting** (no account required unless the host set a join password).
+### Vercel (frontend only)
 
-```text
-Guest clicks link → public HTTPS domain → FastAPI → wss://…/ws/meetings/{id} → WebRTC + STUN/TURN
-```
-
-### Internet access (production)
-
-Do **not** expose a home LAN IP as the product. Deploy behind HTTPS:
-
-- Architecture analysis: [docs/PUBLIC_INTERNET.md](docs/PUBLIC_INTERNET.md)
-- Deploy guide (Docker, Nginx, TURN): [DEPLOYMENT.md](DEPLOYMENT.md)
+Vercel deploys the static **`web/`** folder (~0.2 MB). The Python API must run on **VPS/Docker** — see [docs/VERCEL.md](docs/VERCEL.md) and [docs/VPS_DEPLOY.md](docs/VPS_DEPLOY.md).
 
 **HTTPS is required in production** for reliable camera/microphone access.
 

@@ -60,9 +60,11 @@ ${MINUTA_BASE_URL}/meeting/${meeting_id}
 docker compose up -d --build
 ```
 
-See `docker-compose.yml` and `deploy/nginx.conf`.
+See `docker-compose.yml`, `deploy/nginx.conf`, and the full walkthrough:
 
-Point your DNS A/AAAA record to the server, terminate TLS on Nginx (or use Caddy / certbot).
+**→ [docs/VPS_DEPLOY.md](docs/VPS_DEPLOY.md)** (Option B: VPS + Docker, ~1–2 hours first time)
+
+Point your DNS A/AAAA record to the server, terminate TLS on Nginx/Caddy (or use certbot).
 
 ## Nginx sketch
 
