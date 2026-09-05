@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minuta — Meet. Talk. Capture. Understand.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/design-system.css" />
+  <link rel="stylesheet" href="/static/css/app.css" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand-mark" href="/"><span class="brand-glyph"></span> Minuta</a>
+    <nav class="top-nav">
+      <a href="/tools">Tools</a>
+      <a href="/demo">Demo</a>
+      <a href="/login">Log in</a>
+      <a class="btn btn-primary" href="/register" style="padding:0.55rem 0.9rem">Get Started</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="brand-lockup">Minuta</p>
+        <h1>Meet. Talk. Capture. Understand.</h1>
+        <p class="hero-lead">
+          Minuta turns conversations into searchable transcripts, intelligent meeting notes, and actionable tasks.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="/register">Get Started</a>
+          <a class="btn btn-ghost" href="#join-box">Join a Meeting</a>
+          <a class="btn btn-secondary" href="/demo">Try Demo Meeting</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="wave-plane"><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+    </section>
+
+    <section class="feature-grid" aria-label="Features">
+      <article class="card">
+        <h3>AI-Powered Transcription</h3>
+        <p class="muted">Turn conversations into accurate searchable text.</p>
+      </article>
+      <article class="card">
+        <h3>Smart Meeting Notes</h3>
+        <p class="muted">Automatically generate summaries and key points.</p>
+      </article>
+      <article class="card">
+        <h3>Action Items</h3>
+        <p class="muted">Never lose track of what needs to be done.</p>
+      </article>
+      <article class="card">
+        <h3>Browser Meetings</h3>
+        <p class="muted">Meet directly from your browser with audio, video, and chat.</p>
+      </article>
+      <article class="card">
+        <h3>Search Everything</h3>
+        <p class="muted">Find information from previous conversations.</p>
+      </article>
+      <article class="card">
+        <h3>Live Capture Tools</h3>
+        <p class="muted">Listen via mic or capture meeting/video tab audio anytime.</p>
+      </article>
+    </section>
+
+    <section class="workspace" id="join-box">
+      <div class="section-head">
+        <h2>Join a meeting</h2>
+        <p>Enter a Minuta meeting ID shared with you.</p>
+      </div>
+      <form class="card" id="join-form" style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:end">
+        <label class="field" style="flex:1;min-width:200px;margin:0">
+          <span>Meeting ID</span>
+          <input name="id" placeholder="e.g. 7XK29P" required />
+        </label>
+        <button class="btn btn-primary" type="submit">Continue</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Minuta</span>
+    <span>Meet. Talk. Capture. Understand.</span>
+  </footer>
+  <script>
+    document.getElementById("join-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const id = new FormData(e.target).get("id").trim();
+      if (id) location.href = `/meeting/${encodeURIComponent(id)}`;
+    });
+  </script>
+</body>
+</html>
