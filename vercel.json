@@ -3,7 +3,7 @@
   "version": 2,
   "name": "minuta-web",
   "buildCommand": "",
-  "outputDirectory": "web",
+  "outputDirectory": ".",
   "cleanUrls": false,
   "trailingSlash": false,
   "rewrites": [
